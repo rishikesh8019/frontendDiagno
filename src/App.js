@@ -26,16 +26,16 @@ function App() {
     };
 
     return (
-        <div className="main-container d-flex justify-content-center align-items-center min-vh-100">
-            <div className="card p-4 shadow-lg custom-card">
-                <h1 className="text-center mb-4 gradient-text">Drug Design ViT Predictor</h1>
+        <div className="main-wrapper d-flex justify-content-center align-items-center">
+            <div className="glass-card p-5 shadow-lg">
+                <h1 className="text-center mb-4 title">Drug Design ViT Predictor</h1>
                 <form onSubmit={handleSubmit}>
-                    <div className="mb-3">
-                        <label htmlFor="smilesInput" className="form-label">Enter SMILES:</label>
+                    <div className="form-group mb-4">
+                        <label htmlFor="smilesInput" className="form-label label-text">Enter SMILES Notation</label>
                         <input
                             type="text"
                             id="smilesInput"
-                            className="form-control input-custom"
+                            className="form-control input-field"
                             value={smiles}
                             onChange={(e) => setSmiles(e.target.value)}
                             placeholder="e.g., CCO"
@@ -43,7 +43,7 @@ function App() {
                         />
                     </div>
                     <div className="d-grid">
-                        <button type="submit" className="btn btn-primary btn-lg" disabled={loading}>
+                        <button type="submit" className="btn btn-custom" disabled={loading}>
                             {loading ? 'Predicting...' : 'Predict'}
                         </button>
                     </div>
@@ -52,12 +52,12 @@ function App() {
                 {error && <div className="alert alert-danger mt-3">{error}</div>}
 
                 {result && (
-                    <div className="result-card mt-4 p-3 border rounded">
-                        <h5 className="mb-3">Prediction Result</h5>
+                    <div className="result-box mt-4 p-4 rounded-4">
+                        <h5 className="fw-bold mb-3">Prediction Result</h5>
                         <p><strong>SMILES:</strong> {result.smiles}</p>
                         <p><strong>Activity:</strong> {result.activity}</p>
                         {result.image && (
-                            <div>
+                            <div className="mt-3">
                                 <strong>Structure:</strong>
                                 <img
                                     src={`data:image/png;base64,${result.image}`}
