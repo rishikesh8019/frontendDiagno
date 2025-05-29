@@ -3,24 +3,25 @@
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
-    background: #f9fafb;
+    background: #0f0f0f;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 40px 20px;
-    background:black;
 }
 
 /* Container */
 .container {
-    max-width: 600px;
+    max-width: 620px;
     width: 100%;
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.07);
+    backdrop-filter: blur(16px);
     border-radius: 20px;
-    padding: 30px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    padding: 35px;
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #fff;
 }
 
 /* Title */
@@ -28,36 +29,38 @@ h1 {
     font-size: 2rem;
     font-weight: 700;
     text-align: center;
-    background: linear-gradient(to right, #667eea, #764ba2);
+    background: linear-gradient(to right, #8e2de2, #4a00e0);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 /* Form */
-form {
-    margin-top: 20px;
-}
-
 label {
     font-weight: 600;
-    display: block;
     margin-bottom: 8px;
-    color: #333;
+    display: block;
+    color: #ddd;
 }
 
 input[type="text"] {
     width: 100%;
     padding: 14px;
     border-radius: 12px;
-    border: 1px solid #ccc;
+    border: none;
+    background-color: #ffffff12;
+    color: #f1f1f1;
     font-size: 1rem;
-    transition: box-shadow 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]::placeholder {
+    color: #ccc;
 }
 
 input[type="text"]:focus {
     outline: none;
-    border-color: #764ba2;
-    box-shadow: 0 0 0 4px rgba(118, 75, 162, 0.2);
+    border: 1px solid #8e2de2;
+    box-shadow: 0 0 0 3px rgba(142, 45, 226, 0.3);
 }
 
 /* Button */
@@ -69,7 +72,7 @@ button {
     font-weight: 600;
     border: none;
     border-radius: 30px;
-    background: linear-gradient(to right, #667eea, #764ba2);
+    background: linear-gradient(to right, #8e2de2, #4a00e0);
     color: white;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -77,7 +80,7 @@ button {
 
 button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+    box-shadow: 0 10px 20px rgba(142, 45, 226, 0.3);
 }
 
 button:disabled {
@@ -89,10 +92,10 @@ button:disabled {
 .alert-danger {
     margin-top: 20px;
     padding: 15px;
-    border-left: 5px solid #e74c3c;
-    background-color: #ffe9e9;
+    border-left: 5px solid #ff4d4f;
+    background-color: #2b0d0d;
     border-radius: 10px;
-    color: #c0392b;
+    color: #ffb3b3;
     font-weight: 500;
 }
 
@@ -101,22 +104,39 @@ button:disabled {
     margin-top: 25px;
     border: none;
     border-radius: 15px;
-    background: #fff;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-    padding: 20px;
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.04);
+    padding: 24px;
+    color: #f0f0f0;
 }
 
 .card-title {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 10px;
-    color: #333;
+    margin-bottom: 16px;
+    color: #fff;
 }
 
+/* Result Text */
 .card p {
     font-size: 1rem;
-    margin: 8px 0;
-    color: #555;
+    margin: 10px 0;
+    color: #ddd;
+}
+
+.card strong {
+    color: #ccc;
+}
+
+/* Tags for Activity */
+.card p strong + span {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 4px 10px;
+    background: #4a00e0;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    color: white;
 }
 
 /* Image */
@@ -124,10 +144,11 @@ img {
     margin-top: 12px;
     max-width: 100%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 12px;
     transition: transform 0.3s ease;
+    border: 1px solid #8883;
 }
 
 img:hover {
-    transform: scale(1.03);
+    transform: scale(1.04);
 }
