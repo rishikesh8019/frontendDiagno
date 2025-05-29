@@ -1,17 +1,54 @@
-/* Custom styles for Tailwind CSS */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-/* Ensure the container is responsive */
-.min-h-screen {
-    min-height: 100vh;
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(to right, #e3f2fd, #fce4ec);
+    margin: 0;
 }
 
-/* Optional: Add subtle animations for the image */
-img {
-    transition: transform 0.2s ease-in-out;
+.main-container {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.7);
 }
-img:hover {
+
+.custom-card {
+    width: 100%;
+    max-width: 500px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    border: none;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #3f51b5, #e91e63);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+}
+
+.input-custom {
+    border-radius: 10px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    transition: border 0.3s ease;
+}
+
+.input-custom:focus {
+    border-color: #3f51b5;
+    box-shadow: 0 0 0 0.2rem rgba(63, 81, 181, 0.25);
+}
+
+.result-card {
+    background-color: #f8f9fa;
+    border-left: 4px solid #3f51b5;
+}
+
+.result-image {
+    max-width: 300px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.result-image:hover {
     transform: scale(1.05);
 }
