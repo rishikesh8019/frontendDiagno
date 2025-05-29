@@ -22,7 +22,7 @@ function App() {
         }
 
         try {
-            const response = await axios.post('https://drug-design-99q9.onrender.com/predict/vit/predict/vit', { SMILES: smiles });
+            const response = await axios.post('https://drug-design-99q9.onrender.com/predict/vit', { SMILES: smiles });
             setResult(response.data);
         } catch (err) {
             setError(err.response?.data?.detail || 'An error occurred while fetching the prediction');
