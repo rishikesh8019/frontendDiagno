@@ -1,240 +1,76 @@
+import React, { useState } from 'react';
+import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
+function App() {
+    const [smiles, setSmiles] = useState('');
+    const [result, setResult] = useState(null);
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
 
-// import React, { useState } from 'react';
-// import axios from 'axios';
-// import './App.css';
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError('');
+        setResult(null);
+        setLoading(true);
 
+        try {
+            const response = await axios.post('https://drug-design-99q9.onrender.com/predict/vit', { SMILES: smiles });
+            setResult(response.data);
+        } catch (err) {
+            setError(err.response?.data?.detail || 'An error occurred');
+        } finally {
+            setLoading(false);
+        }
+    };
 
-// function App() {
-//     const [smiles, setSmiles] = useState('');
-//     const [result, setResult] = useState(null);
-//     const [error, setError] = useState('');
-//     const [loading, setLoading] = useState(false);
+    return (
+        <div className="main-wrapper d-flex justify-content-center align-items-center">
+            <div className="glass-card p-5 shadow-lg">
+                <h1 className="text-center mb-4 title">Drug Design ViT Predictor</h1>
+                <form onSubmit={handleSubmit}>
+                    <div className="form-group mb-4">
+                        <label htmlFor="smilesInput" className="form-label label-text">Enter SMILES Notation</label>
+                        <input
+                            type="text"
+                            id="smilesInput"
+                            className="form-control input-field"
+                            value={smiles}
+                            onChange={(e) => setSmiles(e.target.value)}
+                            placeholder="e.g., CCO"
+                            required
+                        />
+                    </div>
+                    <div className="d-grid">
+                        <button type="submit" className="btn btn-custom" disabled={loading}>
+                            {loading ? 'Predicting...' : 'Predict'}
+                        </button>
+                    </div>
+                </form>
 
-//     const handleSubmit = async (e) => {
-//         e.preventDefault();
-//         setError('');
-//         setResult(null);
-//         setLoading(true);
+                {error && <div className="alert alert-danger mt-3">{error}</div>}
 
-//         try {
-//             const response = await axios.post('https://drug-design-backend-qpt3.onrender.com/predict/vit', { SMILES: smiles });
-//             setResult(response.data);
-//         } catch (err) {
-//             setError(err.response?.data?.detail || 'An error occurred');
-//         } finally {
-//             setLoading(false);
-//         }
-//     };
-
-//     return (
-//         <div className="container mt-5">
-//             <h1 className="text-center mb-4">DiagnoGen Ligand Activity Predictor</h1>
-//             <form onSubmit={handleSubmit} className="mb-4">
-//                 <div className="mb-3">
-//                     <label htmlFor="smilesInput" className="form-label">Enter SMILES:</label>
-//                     <input
-//                         type="text"
-//                         id="smilesInput"
-//                         className="form-control"
-//                         value={smiles}
-//                         onChange={(e) => setSmiles(e.target.value)}
-//                         placeholder="e.g., CCO"
-//                         required
-//                     />
-//                 </div>
-//                 <button type="submit" className="btn btn-primary" disabled={loading}>
-//                     {loading ? 'Predicting...' : 'Predict'}
-//                 </button>
-//             </form>
-
-//             {error && <div className="alert alert-danger">{error}</div>}
-
-//             {result && (
-//                 <div className="card">
-//                     <div className="card-body">
-//                         <h5 className="card-title">Prediction Result</h5>
-//                         <p><strong>SMILES:</strong> {result.smiles}</p>
-//                         <p><strong>Activity:</strong> {result.activity}</p>
-//                         {result.image && (
-//                             <div>
-//                                 <strong>Structure:</strong>
-//                                 <img
-//                                     src={data:image/png;base64,${result.image}}
-//                                     alt="Molecular Structure"
-//                                     className="img-fluid mt-2"
-//                                     style={{ maxWidth: '300px' }}
-//                                 />
-//                             </div>
-//                         )}
-//                     </div>
-//                 </div>
-//             )}
-//         </div>
-//     );
-// }
-
-// export default App;
-
-
-
-
-
-
-
-
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-
-body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    background: #0f0f0f;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px;
+                {result && (
+                    <div className="result-box mt-4 p-4 rounded-4">
+                        <h5 className="fw-bold mb-3">Prediction Result</h5>
+                        <p><strong>SMILES:</strong> {result.smiles}</p>
+                        <p><strong>Activity:</strong> {result.activity}</p>
+                        {result.image && (
+                            <div className="mt-3">
+                                <strong>Structure:</strong>
+                                <img
+                                    src={data:image/png;base64,${result.image}}
+                                    alt="Molecular Structure"
+                                    className="img-fluid mt-2 result-image"
+                                />
+                            </div>
+                        )}
+                    </div>
+                )}
+            </div>
+        </div>
+    );
 }
 
-/* Container */
-.container {
-    max-width: 620px;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.07);
-    backdrop-filter: blur(16px);
-    border-radius: 20px;
-    padding: 35px;
-    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: #fff;
-}
-
-/* Title */
-h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    text-align: center;
-    background: linear-gradient(to right, #8e2de2, #4a00e0);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* Form */
-label {
-    font-weight: 600;
-    margin-bottom: 8px;
-    display: block;
-    color: #ddd;
-}
-
-input[type="text"] {
-    width: 100%;
-    padding: 14px;
-    border-radius: 12px;
-    border: none;
-    background-color: #ffffff12;
-    color: #f1f1f1;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-input[type="text"]::placeholder {
-    color: #ccc;
-}
-
-input[type="text"]:focus {
-    outline: none;
-    border: 1px solid #8e2de2;
-    box-shadow: 0 0 0 3px rgba(142, 45, 226, 0.3);
-}
-
-/* Button */
-button {
-    width: 100%;
-    padding: 14px;
-    margin-top: 15px;
-    font-size: 1rem;
-    font-weight: 600;
-    border: none;
-    border-radius: 30px;
-    background: linear-gradient(to right, #8e2de2, #4a00e0);
-    color: white;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(142, 45, 226, 0.3);
-}
-
-button:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-/* Alert */
-.alert-danger {
-    margin-top: 20px;
-    padding: 15px;
-    border-left: 5px solid #ff4d4f;
-    background-color: #2b0d0d;
-    border-radius: 10px;
-    color: #ffb3b3;
-    font-weight: 500;
-}
-
-/* Result Card */
-.card {
-    margin-top: 25px;
-    border: none;
-    border-radius: 15px;
-    background: rgba(255, 255, 255, 0.08);
-    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.04);
-    padding: 24px;
-    color: #f0f0f0;
-}
-
-.card-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 16px;
-    color: #fff;
-}
-
-/* Result Text */
-.card p {
-    font-size: 1rem;
-    margin: 10px 0;
-    color: #ddd;
-}
-
-.card strong {
-    color: #ccc;
-}
-
-/* Tags for Activity */
-.card p strong + span {
-    display: inline-block;
-    margin-left: 10px;
-    padding: 4px 10px;
-    background: #4a00e0;
-    border-radius: 12px;
-    font-size: 0.85rem;
-    color: white;
-}
-
-/* Image */
-img {
-    margin-top: 12px;
-    max-width: 100%;
-    height: auto;
-    border-radius: 12px;
-    transition: transform 0.3s ease;
-    border: 1px solid #8883;
-}
-
-img:hover {
-    transform: scale(1.04);
-}
+export default App;
