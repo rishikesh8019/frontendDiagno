@@ -1,6 +1,17 @@
-.container {
-    max-width: 800px;
+/* Custom styles for Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Ensure the container is responsive */
+.min-h-screen {
+    min-height: 100vh;
 }
-.card {
-    margin-top: 20px;
+
+/* Optional: Add subtle animations for the image */
+img {
+    transition: transform 0.2s ease-in-out;
+}
+img:hover {
+    transform: scale(1.05);
 }
