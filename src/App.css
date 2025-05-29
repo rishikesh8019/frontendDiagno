@@ -2,21 +2,45 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
-    min-height: 100vh;
     margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #1f1f1f;
+    position: relative;
 }
 
 .main-wrapper {
     min-height: 100vh;
     padding: 20px;
     width: 100%;
+    z-index: 1;
 }
 
+/* 🌈 Animated Background */
+body::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, #ff6ec4, #7873f5, #42e695, #facc6b, #ff6ec4);
+    background-size: 400% 400%;
+    animation: gradientFlow 15s ease infinite;
+    z-index: 0;
+    filter: blur(100px);
+    opacity: 0.8;
+}
+
+@keyframes gradientFlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Glassmorphic card */
 .glass-card {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 25px;
@@ -26,8 +50,12 @@ body {
     max-width: 550px;
     width: 100%;
     margin: auto;
+    z-index: 2;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.3);
 }
 
+/* Title Gradient Text */
 .title {
     background: linear-gradient(to right, #6a11cb, #2575fc);
     -webkit-background-clip: text;
@@ -36,6 +64,7 @@ body {
     font-size: 2rem;
 }
 
+/* Input + Label */
 .label-text {
     font-weight: 600;
     font-size: 1rem;
@@ -56,6 +85,7 @@ body {
     outline: none;
 }
 
+/* Button */
 .btn-custom {
     padding: 12px;
     font-size: 1rem;
@@ -72,12 +102,15 @@ body {
     box-shadow: 0 8px 20px rgba(37, 117, 252, 0.4);
 }
 
+/* Result Box */
 .result-box {
     background: #ffffffee;
     border-left: 5px solid #2575fc;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    z-index: 2;
 }
 
+/* Image */
 .result-image {
     border-radius: 10px;
     max-width: 100%;
