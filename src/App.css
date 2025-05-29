@@ -1,266 +1,133 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-
-body {
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    min-height: 100vh;
-    overflow-x: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.main-wrapper {
-    min-height: 100vh;
-    padding: 20px;
-    width: 100%;
-    z-index: 1;
-}
-
-/* 🌈 Animated Background */
-body::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(45deg, #ff6ec4, #7873f5, #42e695, #facc6b, #ff6ec4);
-    background-size: 400% 400%;
-    animation: gradientFlow 15s ease infinite;
-    z-index: 0;
-    filter: blur(100px);
-    opacity: 0.8;
-}
-
-@keyframes gradientFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-/* Glassmorphic card */
-.glass-card {
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 25px;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    max-width: 550px;
-    width: 100%;
-    margin: auto;
-    z-index: 2;
-    position: relative;
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.3);
-}
-
-/* Title Gradient Text */
-.title {
-    background: linear-gradient(to right, #6a11cb, #2575fc);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 700;
-    font-size: 2rem;
-}
-
-/* Input + Label */
-.label-text {
-    font-weight: 600;
-    font-size: 1rem;
-}
-
-.input-field {
-    border-radius: 12px;
-    border: 1px solid #ced4da;
-    padding: 12px;
-    font-size: 1rem;
-    background: rgba(255, 255, 255, 0.7);
-    transition: all 0.3s ease;
-}
-
-.input-field:focus {
-    border-color: #2575fc;
-    box-shadow: 0 0 0 4px rgba(37, 117, 252, 0.2);
-    outline: none;
-}
-
-/* Button */
-.btn-custom {
-    padding: 12px;
-    font-size: 1rem;
-    font-weight: 600;
-    background: linear-gradient(to right, #6a11cb, #2575fc);
-    border: none;
-    border-radius: 50px;
-    color: white;
-    transition: all 0.3s ease;
-}
-
-.btn-custom:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(37, 117, 252, 0.4);
-}
-
-/* Result Box */
-.result-box {
-    background: #ffffffee;
-    border-left: 5px solid #2575fc;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    z-index: 2;
-}
-
-/* Image */
-.result-image {
-    border-radius: 10px;
-    max-width: 100%;
-    height: auto;
-    transition: transform 0.3s ease;
-}
-
-.result-image:hover {
-    transform: scale(1.05);
-}
- */
-
-
-
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
 body {
     font-family: 'Inter', sans-serif;
     margin: 0;
+    background: #f9fafb;
     min-height: 100vh;
-    overflow-x: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #f3f4f6;
-    position: relative;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #eef2f3, #dfe9f3);
 }
 
-/* Animated Pastel Background */
-body::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(60deg, #a18cd1, #fbc2eb, #fad0c4, #ffd1ff);
-    background-size: 400% 400%;
-    animation: gradientFlow 20s ease infinite;
-    z-index: 0;
-    filter: blur(120px);
-    opacity: 0.7;
-}
-
-@keyframes gradientFlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.main-wrapper {
-    width: 100%;
-    padding: 30px 20px;
-    z-index: 1;
-    position: relative;
-}
-
-/* Modern Glassmorphic Card */
-.glass-card {
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border: 1.2px solid rgba(255, 255, 255, 0.3);
+/* Container */
+.container {
     max-width: 600px;
-    margin: auto;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 }
 
-/* Title Gradient */
-.title {
-    font-size: 2.2rem;
+/* Title */
+h1 {
+    font-size: 2rem;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 25px;
-    background: linear-gradient(to right, #ff6ec4, #7873f5);
+    background: linear-gradient(to right, #667eea, #764ba2);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* Label */
-.label-text {
+/* Form */
+form {
+    margin-top: 20px;
+}
+
+label {
     font-weight: 600;
-    font-size: 1rem;
-    margin-bottom: 6px;
     display: block;
+    margin-bottom: 8px;
     color: #333;
 }
 
-/* Input */
-.input-field {
+input[type="text"] {
     width: 100%;
-    padding: 14px 16px;
+    padding: 14px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
     font-size: 1rem;
-    border-radius: 14px;
-    border: none;
-    background: #ffffffcc;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
-    margin-bottom: 20px;
-    transition: all 0.3s ease;
+    transition: box-shadow 0.3s ease;
 }
 
-.input-field:focus {
+input[type="text"]:focus {
     outline: none;
-    box-shadow: 0 0 0 4px rgba(100, 100, 255, 0.2);
+    border-color: #764ba2;
+    box-shadow: 0 0 0 4px rgba(118, 75, 162, 0.2);
 }
 
 /* Button */
-.btn-custom {
-    display: inline-block;
+button {
     width: 100%;
     padding: 14px;
+    margin-top: 15px;
     font-size: 1rem;
     font-weight: 600;
-    border-radius: 30px;
     border: none;
+    border-radius: 30px;
     background: linear-gradient(to right, #667eea, #764ba2);
     color: white;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.btn-custom:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
 }
 
-/* Result Box */
-.result-box {
-    background: #ffffffee;
-    border-left: 6px solid #764ba2;
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Alert */
+.alert-danger {
+    margin-top: 20px;
+    padding: 15px;
+    border-left: 5px solid #e74c3c;
+    background-color: #ffe9e9;
     border-radius: 10px;
-    padding: 20px;
+    color: #c0392b;
+    font-weight: 500;
+}
+
+/* Result Card */
+.card {
     margin-top: 25px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+    border: none;
+    border-radius: 15px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card p {
+    font-size: 1rem;
+    margin: 8px 0;
+    color: #555;
 }
 
 /* Image */
-.result-image {
-    display: block;
+img {
+    margin-top: 12px;
     max-width: 100%;
     height: auto;
-    border-radius: 12px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-top: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
 }
 
-.result-image:hover {
+img:hover {
     transform: scale(1.03);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
