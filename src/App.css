@@ -2,51 +2,87 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(to right, #e3f2fd, #fce4ec);
+    background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+    min-height: 100vh;
     margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1f1f1f;
 }
 
-.main-container {
+.main-wrapper {
+    min-height: 100vh;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.7);
-}
-
-.custom-card {
     width: 100%;
-    max-width: 500px;
-    background-color: #ffffff;
-    border-radius: 20px;
-    border: none;
 }
 
-.gradient-text {
-    background: linear-gradient(90deg, #3f51b5, #e91e63);
+.glass-card {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    max-width: 550px;
+    width: 100%;
+    margin: auto;
+}
+
+.title {
+    background: linear-gradient(to right, #6a11cb, #2575fc);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 700;
+    font-size: 2rem;
 }
 
-.input-custom {
-    border-radius: 10px;
+.label-text {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.input-field {
+    border-radius: 12px;
     border: 1px solid #ced4da;
-    padding: 10px;
-    transition: border 0.3s ease;
+    padding: 12px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
 }
 
-.input-custom:focus {
-    border-color: #3f51b5;
-    box-shadow: 0 0 0 0.2rem rgba(63, 81, 181, 0.25);
+.input-field:focus {
+    border-color: #2575fc;
+    box-shadow: 0 0 0 4px rgba(37, 117, 252, 0.2);
+    outline: none;
 }
 
-.result-card {
-    background-color: #f8f9fa;
-    border-left: 4px solid #3f51b5;
+.btn-custom {
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    background: linear-gradient(to right, #6a11cb, #2575fc);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 117, 252, 0.4);
+}
+
+.result-box {
+    background: #ffffffee;
+    border-left: 5px solid #2575fc;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .result-image {
-    max-width: 300px;
     border-radius: 10px;
-    transition: transform 0.3s ease-in-out;
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
 }
 
 .result-image:hover {
